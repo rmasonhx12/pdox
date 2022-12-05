@@ -1,60 +1,65 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <HelloWorld/>
-    </v-main>
-  </v-app>
+  <div id="app">
+    <v-app>
+      <v-layout row>
+        <v-flex xs12 sm6 offset-sm3>
+          <v-card>
+            <Docs :items="items"/>
+            <v-card-text style="height: 100px; position:relative">
+              <v-btn 
+                  big 
+                  color="green"
+                  dark
+                  absolute
+                  bottom
+                  right
+                  fab
+                >
+                <v-icon>add</v-icon>
+                </v-btn>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </v-app>
+  
+  
+  </div>     
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import Docs from './components/Docs.vue'
+
 
 export default {
-  name: 'App',
+  name: 'app',
 
   components: {
-    HelloWorld,
+    Docs
   },
 
-  data: () => ({
-    //
-  }),
-};
+  data: () => {
+    return {
+      items: [
+        {
+          id: 1,
+          name: "Test 1",
+          exp: "16 Oct 2019"
+        },
+        {
+          id: 2,
+          name: "Test 2",
+          exp: "19 Oct 2020"
+        },
+        {
+          id: 3,
+          name: "Test 3",
+          exp: "14 Oct 2021"
+        },
+      ]
+    }
+  }
+}
 </script>
+<style>
+</style>
